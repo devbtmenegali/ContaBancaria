@@ -39,7 +39,7 @@ def saldo_inicial_da_conta(lista_de_cliente):
 
 def movimentacao_conta(numeros_de_conta, lista_de_cliente, saldo_inicial):
 
-    codigo_conta = int(input("Digite o código da conta: "))
+    codigo_conta = int(input("Digite o código da conta ou 0(Sair): "))
     if codigo_conta not in numeros_de_conta:
         print("Código de conta inválido.")
         return
@@ -72,8 +72,15 @@ def movimentacao_conta(numeros_de_conta, lista_de_cliente, saldo_inicial):
         if continuar != "S":
             break
 
-#def grafico_conta():
+def grafico_conta(lista_de_cliente, saldo_inicial):
 
+    plt.bar (lista_de_cliente,saldo_inicial)
+
+    plt.title ("Saldo em Contas")
+    plt.xlabel ("Clientes")
+    plt.ylabel ("Saldo")
+
+    plt.show()
 
 def main():
 
@@ -86,6 +93,7 @@ def main():
 
     movimentacao_conta(numeros_de_conta, lista_de_cliente, saldo_inicial)
 
+    grafico_conta(lista_de_cliente, saldo_inicial)
 
 if __name__=="__main__":
 
